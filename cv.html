@@ -1,72 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kathleen Alves Costa</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV</title>
+<link rel="stylesheet" href="https://use.typekit.net/xms5iol.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <link rel="stylesheet" href="https://use.typekit.net/xms5iol.css">
-
- <style>
   body {
     font-family: "adobe-caslon-pro", serif;
-    margin: 0;
-    padding: 0;
-    color: #333;
     background-color: #fafaf8;
+    color: #333;
     text-align: center;
   }
 
-  #header {
-    margin: 5px 0 2px 0;
-    background-color: #fafaf8;
-  }
-
-  #header h1 {
-    font-size: 48px;
-    margin: 0;
-    color: black;
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  #nav-links {
-    margin: 0px 0 15px 0;
-  }
-
+  #header { margin: 5px 0 2px 0; }
+  #header h1 { font-size: 48px; color: black; font-style: italic; font-weight: 400; }
+  #nav-links { margin: 0 0 15px 0; }
   #nav-links a {
-    margin: 0 15px;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-style: italic;
+    margin: 0 15px; text-decoration: none; color: black;
+    font-weight: bold; font-style: italic;
     font-family: "adobe-caslon-pro", serif;
   }
- #container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    max-width: 900px;
+
+  .cv-page {
+    max-width: 820px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 20px 30px 60px;
     text-align: left;
   }
 
-  #container img {
-    max-width: 200px;
-    border-radius: 0px;
+  .rule {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 0;
+  }
+  .rule-thick {
+    border: none;
+    border-top: 2px solid #222;
+    margin: 0;
   }
 
-  #experience-text {
-    max-width: 550px;
-    font-size: 16px;
-    line-height: 1.6;
-    font-family: "adobe-caslon-pro", serif;
+  .cv-section {
+    margin-top: 36px;
+  }
+
+  .cv-section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+  }
+  .cv-section-header h2 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #000000;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .cv-section-header .rule { flex: 1; }
+
+  .cv-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 28px;
+    padding: 18px 0;
+    border-bottom: 1px solid #e5e5e2;
+  }
+  .cv-entry:last-child { border-bottom: none; }
+
+  .cv-entry-meta {
+    padding-top: 3px;
+  }
+  .cv-entry-dates {
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: #666;
+    font-style: italic;
+  }
+  .cv-entry-location {
+    font-size: 12px;
+    color: #bbb;
+    margin-top: 4px;
+  }
+
+  .cv-entry-body h3 {
+    font-size: 17px;
+    font-weight: 600;
+    font-style: italic;
+    color: #111;
+    }
+  .cv-entry-body ul li::before {
+    content: "—";
+    margin-right: 8px;
+    color: #ccc;
+  }
+  .cv-entry-body .company {
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #111;
+    margin-top: 3px;
     font-weight: 400;
     font-style: normal;
   }
+  .cv-entry-body p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #111;
+    margin-top: 10px;
+  }
+  .cv-entry-body ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+.cv-entry-body ul li {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666;
+}
+.cv-entry-body ul li::before {
+  content: "—";
+  margin-right: 8px;
+  color: #ccc;
+}
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0;
+  }
+  .skill-group {
+    padding: 18px 0 18px 0;
+    border-bottom: 1px solid #e5e5e2;
+    padding-right: 20px;
+  }
+  .skill-group h4 {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #666;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .skill-group ul {
+    list-style: none;
+    padding: 0;
+  }
+  .skill-group ul li {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #333;
+  }
+  .skill-group ul li::before {
+    content: "—";
+    margin-right: 8px;
+    color: #ccc;
+  }
 
+  .edu-entry {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 28px;
+    padding: 14px 0;
+    border-bottom: 1px solid #e5e5e2;
+    font-size: 15px;
+  }
+  .edu-entry:last-child { border-bottom: none; }
+  .edu-year { color: #666; font-style: italic; font-size: 13px; padding-top: 2px; }
+  .edu-degree { font-style: italic; color: #111; }
+  .edu-school { color: #666; font-size: 13px; margin-top: 2px; letter-spacing: 0.04em; }
+
+  @media (max-width: 600px) {
+    .cv-entry, .edu-entry {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .cv-entry-meta { padding-bottom: 6px; }
+  }
   #footer {
     margin-top: 40px;
     padding: 20px;
@@ -74,34 +188,151 @@
     color: #666;
     background-color: #fafaf8;
   }
-
-  @media (max-width: 768px) {
-    #container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-
-    #experience-text {
-      text-align: left;
-    }
-  }
 </style>
 </head>
 <body>
-
   <div id="header">
     <h1>Kathleen Alves Costa</h1>
     <div id="nav-links">
       <a href="index.html">About</a>
-      <a href="project.html">Projects</a>
       <a href="cv.html">CV</a>
     </div>
   </div>
-<iframe src="https://raw.githack.com/kathleenalvescosta/kathleenalvescosta/main/files/cv/resume.pdf" height="600" width="100%" style="border: none"></iframe>
+
+<hr>
+
+<div class="cv-page">
+
+  <section class="cv-section">
+    <div class="cv-section-header">
+      <h2>Professional Experience</h2>
+      <hr class="rule">
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-meta">
+        <div class="cv-entry-dates">September 2025 – present</div>
+        <div class="cv-entry-location">Johns Creek, GA</div>
+      </div>
+      <div class="cv-entry-body">
+        <h3>Code Coach</h3>
+        <div class="company">theCoderSchool</div>
+        <ul>
+          <li>Mentored and instructed students (ages 5–18) in coding languages including Scratch and Python through private lessons, group classes, and collaborative app development projects</li>
+          <li>Guided students in designing and building applications, fostering problem-solving, creativity, and computational thinking</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-meta">
+        <div class="cv-entry-dates">July 2025 – January 2026</div>
+        <div class="cv-entry-location">Remote</div>
+      </div>
+      <div class="cv-entry-body">
+        <h3>Generative AI Chatbot Developer</h3>
+        <div class="company">Community School of the Arts Foundation</div>
+        <ul>
+          <li>Designed and deployed AI-powered lesson plan generator for K-12 arts educators using OpenAI API, producing curriculum-aligned content with built-in accessibility and differentiation features</li>
+          <li>Engineered full-stack web application using React, AWS, and NLP techniques, implementing structured prompt engineering framework and JSON validation for educational standards compliance</li>
+          <li>Authored comprehensive internship report documenting ethical AI deployment in education, including bias-mitigation strategies and data privacy considerations for underserved communities</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-meta">
+        <div class="cv-entry-dates">May 2024 – Present</div>
+        <div class="cv-entry-location">Remote</div>
+      </div>
+      <div class="cv-entry-body">
+        <h3>Language Specialist/Quality Assurance Specialist</h3>
+        <div class="company">Innodata, Inc.</div>
+        <ul>
+          <li>Audit annotation quality and compliance using Excel, contributing to high-quality training data for machine learning and NLP models</li>
+          <li>Co-developed an IRAR (Inter-Rater Agreement and Review) tool in Python that streamlined QA workflows, reducing annotation review time by approximately 40% across data from 35+ raters</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-header">
+      <h2>Education</h2>
+      <hr class="rule">
+    </div>
+    <div class="edu-entry">
+      <div class="edu-year">2026 - Present</div>
+      <div>
+        <div class="edu-degree">PhD in Criminology and Criminal Justice</div>
+        <div class="edu-school">University of Massachusetts Lowell</div>
+      </div>
+    </div>
+    <div class="edu-entry">
+      <div class="edu-year">2024 - 2026</div>
+      <div>
+        <div class="edu-degree">Master of Science in Human Language Technology</div>
+        <div class="edu-school">The University of Arizona</div>
+      </div>
+    </div>
+
+    <div class="edu-entry">
+      <div class="edu-year">2022 - 2024</div>
+      <div>
+        <div class="edu-degree">Bachelor of Arts in Applied Linguistics</div>
+        <div class="edu-school">Georgia State University</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-section">
+    <div class="cv-section-header">
+      <h2>Skills</h2>
+      <hr class="rule">
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Programming Languages & Scripting</h4>
+        <ul>
+          <li>Python</li>
+          <li>R</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Software</h4>
+        <ul>
+          <li>Shell scripting (HPC clusters)</li>
+          <li>LaTeX</li>
+          <li>Docker</li>
+          <li>R Studio</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>NLP & ML Tools</h4>
+        <ul>
+          <li>spaCy</li>
+          <li>NLTK</li>
+          <li>scikit-learn</li>
+          <li>BeautifulSoup4</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <ul>
+          <li>English (native)</li>
+          <li>Portuguese (fluent)</li>
+          <li>Spanish (working)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 <div id="footer">
     © 2026 Kathleen Alves Costa
   </div>
+
 </body>
 </html>
